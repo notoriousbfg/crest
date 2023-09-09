@@ -1,0 +1,9 @@
+each (range 1 100) (num) {
+    if (num % 15) {
+        print "fizzbuzz"
+    } (num % 3) {
+        print "fizz"
+    } (num % 5) {
+        print "buzz"
+    }
+}

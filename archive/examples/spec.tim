@@ -8,11 +8,15 @@
 (names: ('Tim', 'Paul'))
 
 (treesAndColours: (fir (name 'Fir', colour 'Green')))
-treesAndColours.get(fir.name) // 'Fir'
+treesAndColours.get("fir.name") // 'Fir'
 treesAndColours.get(0).get(0) // 'Fir'
 
 // function
-(helloWorld: (name) => "Hello " . name)
+(helloWorld: (name) => {
+    >> ("hello ", name).join()
+})
+// lambda func
+(helloWorld: (name) => >> "Hello " . name)
 (helloNames: (...names).each(helloWorld))
 
 // no args
@@ -20,7 +24,7 @@ treesAndColours.get(0).get(0) // 'Fir'
 
 // if/else
 ?(
-    (true) => // do this,
+    firstCond: (true) => // do this, // what about named conditions? i.e. the conditional statement is a dict?
     (false) => // don't do this,
     () => // else
 )

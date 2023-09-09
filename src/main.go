@@ -1,7 +1,18 @@
 package main
 
-import "tim/lexer"
+import (
+	"fmt"
+	"os"
+	"tim/lexer"
+)
 
 func main() {
-	lexer.New("(five 5)")
+	b, err := os.ReadFile("./basic.crest")
+	if err != nil {
+		fmt.Print(err)
+	}
+	input := string(b)
+	l := lexer.New(input)
+	fmt.Printf("%+v", l.Tokens)
+	fmt.Println()
 }
