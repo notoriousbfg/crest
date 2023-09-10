@@ -1,9 +1,9 @@
 package main
 
 import (
+	"crest/lexer"
 	"fmt"
 	"os"
-	"tim/lexer"
 )
 
 func main() {

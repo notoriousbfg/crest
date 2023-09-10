@@ -14,10 +14,8 @@ const (
 	STAR
 	SLASH
 	QUESTION
-	SEMICOLON
 
 	// one or two-char tokens
-	DOUBLE_ARROW
 	DOUBLE_EQUAL
 	BANG
 	BANG_EQUAL
@@ -28,14 +26,18 @@ const (
 	LESS_EQUAL
 	INCREMENT // ++
 	DECREMENT // --
-	RETURN    // >>
 
 	// literals
 	IDENTIFIER
 	STRING
 	NUMBER
+	FLOAT
 
 	// keywords
+	IF
+	FUNC
+	VAR
+	RETURN
 	TRUE
 	FALSE
 	NIL
@@ -66,14 +68,20 @@ func (tt TokenType) String() string {
 		return "PLUS"
 	case MINUS:
 		return "MINUS"
+	case STAR:
+		return "STAR"
+	case SLASH:
+		return "SLASH"
 	case QUESTION:
 		return "QUESTION"
-	case SEMICOLON:
-		return "SEMICOLON"
+	case DOUBLE_EQUAL:
+		return "DOUBLE_EQUAL"
+	case BANG:
+		return "BANG"
+	case BANG_EQUAL:
+		return "BANG_EQUAL"
 	case EQUAL:
 		return "EQUAL"
-	case DOUBLE_ARROW:
-		return "DOUBLE_ARROW"
 	case LESS:
 		return "LESS"
 	case LESS_EQUAL:
@@ -86,14 +94,22 @@ func (tt TokenType) String() string {
 		return "INCREMENT"
 	case DECREMENT:
 		return "DECREMENT"
-	case RETURN:
-		return "RETURN"
 	case STRING:
 		return "STRING"
 	case NUMBER:
 		return "NUMBER"
+	case FLOAT:
+		return "FLOAT"
 	case IDENTIFIER:
 		return "IDENTIFIER"
+	case IF:
+		return "IF"
+	case FUNC:
+		return "FUNC"
+	case VAR:
+		return "VAR"
+	case RETURN:
+		return "RETURN"
 	case TRUE:
 		return "TRUE"
 	case FALSE:
@@ -115,27 +131,15 @@ type Token struct {
 	Line     int
 }
 
-// temporary
-func ListFunctions() []string {
-	return []string{
-		"print",
-	}
-}
-
-func IsListFunction(name string) bool {
-	for _, function := range ListFunctions() {
-		if name == function {
-			return true
-		}
-	}
-	return false
-}
-
 func Keywords() map[string]TokenType {
 	return map[string]TokenType{
-		"true":  TRUE,
-		"false": FALSE,
-		"nil":   NIL,
+		"if":     IF,
+		"func":   FUNC,
+		"var":    VAR,
+		"return": RETURN,
+		"true":   TRUE,
+		"false":  FALSE,
+		"nil":    NIL,
 	}
 }
 
