@@ -1,0 +1,5 @@
+var myName "Tim"
+func sayHello (name) {
+    print "hello " + name
+}
+sayHello myName

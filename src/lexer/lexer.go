@@ -43,6 +43,14 @@ func (l *Lexer) ReadInput() error {
 	return nil
 }
 
+func (l *Lexer) TokenTypes() []token.TokenType {
+	var types []token.TokenType
+	for _, token := range l.Tokens {
+		types = append(types, token.Type)
+	}
+	return types
+}
+
 func (l *Lexer) readChar() error {
 	char := l.nextChar()
 	switch char {
